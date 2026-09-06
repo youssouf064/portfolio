@@ -2,47 +2,125 @@
 
 {% block content %}
 
-<div class="container mt-5">
+<!-- Styles pour le carrousel d'arrière-plan animé -->
+<style>
+.bg-slider-container {
+    position: relative;
+    width: 100%;
+    min-height: 85vh;
+    overflow: hidden;
+    border-radius: 15px;
+}
 
-    <div class="row align-items-center">
+/* Couches d'images en arrière-plan */
+.bg-slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    opacity: 0;
+    animation: crossfade 15s infinite;
+    z-index: 1;
+}
 
-        <div class="col-md-6">
+/* Décalage des animations pour la transition */
+.bg-slide:nth-child(1) {
+    background-image: url("{{ url_for('static', filename='bg1.jpeg') }}");
+    animation-delay: 0s;
+}
 
-            <h1 class="display-4 fw-bold">
-                Bonjour, je suis
-                <span class="text-primary">Youssouf Seme</span>
-            </h1>
+.bg-slide:nth-child(2) {
+    background-image: url("{{ url_for('static', filename='bg2.jpeg') }}");
+    animation-delay: 5s;
+}
 
-            <h3 class="mt-3">
-                Développeur Python | Support & Opérations
-            </h3>
+.bg-slide:nth-child(3) {
+    background-image: url("{{ url_for('static', filename='bg3.jpeg') }}");
+    animation-delay: 10s;
+}
 
-            <p class="mt-4">
-                Passionné par le développement d'applications web avec Python, Flask et SQLite.
-                J'ai également une expérience dans la collecte de données, la supervision
-                d'équipes et la collaboration avec des ONG internationales.
-            </p>
+/* Voile sombre pour garantir la lisibilité du texte */
+.bg-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.65);
+    z-index: 2;
+}
 
-            <a href="/projects" class="btn btn-primary btn-lg">
-                Voir mes projets
-            </a>
+/* Contenu textuel placé au-dessus du fond */
+.hero-content {
+    position: relative;
+    z-index: 3;
+    padding: 3rem 1.5rem;
+}
 
-            <a href="/contact" class="btn btn-outline-dark btn-lg">
-                Me contacter
-            </a>
+/* Keyframes de la transition en fondu */
+@keyframes crossfade {
+    0% { opacity: 0; }
+    10% { opacity: 1; }
+    33% { opacity: 1; }
+    43% { opacity: 0; }
+    100% { opacity: 0; }
+}
+</style>
 
-        </div>
+<div class="container mt-4">
+    <div class="bg-slider-container shadow-lg">
+        
+        <!-- Images en arrière-plan -->
+        <div class="bg-slide"></div>
+        <div class="bg-slide"></div>
+        <div class="bg-slide"></div>
+        
+        <!-- Voile assombrissant -->
+        <div class="bg-overlay"></div>
 
-        <div class="col-md-6 text-center">
+        <!-- Contenu texte & photo de profil -->
+        <div class="hero-content text-white">
+            <div class="row align-items-center min-vh-50">
 
-            <img src="{{ url_for('static', filename='profile.png') }}"
-                 class="img-fluid rounded-circle shadow"
-                 width="300">
+                <div class="col-md-7">
+                    <h1 class="display-4 fw-bold">
+                        Bonjour, je suis 
+                        <span class="text-info">Youssouf Seme</span>
+                    </h1>
 
+                    <h3 class="mt-3 text-light">
+                        Développeur Python & AI Specialist | Gestion Administrative & Secrétariat
+                    </h3>
+
+                    <p class="mt-4 lead text-light">
+                        Polyvalent et rigoureux, j'allie de solides compétences en <strong>secrétariat, bureautique et gestion administrative</strong> avec la création d'applications web modernes en <strong>Python, Flask, FastAPI et PostgreSQL</strong>, tout en maîtrisant les outils d'<strong>Intelligence Artificielle</strong>. 
+                        Fort d'une expérience réussie dans la collecte de données, la gestion comptable et la collaboration avec des ONG internationales.
+                    </p>
+
+                    <div class="mt-4">
+                        <a href="/projects" class="btn btn-info btn-lg me-2 text-white fw-bold">
+                            Voir mes projets
+                        </a>
+                        <a href="/contact" class="btn btn-outline-light btn-lg">
+                            Me contacter
+                        </a>
+                    </div>
+                </div>
+
+                <div class="col-md-5 text-center mt-4 mt-md-0">
+                    <img src="{{ url_for('static', filename='profile.jpeg') }}"
+                         class="img-fluid rounded-circle shadow-lg border border-3 border-light"
+                         width="260"
+                         alt="Youssouf Seme">
+                </div>
+
+            </div>
         </div>
 
     </div>
-
 </div>
 
 {% endblock %}

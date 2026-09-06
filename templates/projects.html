@@ -7,32 +7,98 @@
     <div class="text-center mb-5">
         <h1>🚀 Mes Projets</h1>
         <p class="text-muted">
-            Quelques applications et projets développés avec Python et Flask.
+            Découvrez l'ensemble de mes applications et réalisations développées avec Python, FastAPI, Flask, Streamlit et PostgreSQL.
         </p>
     </div>
 
     <div class="row">
 
+        <!-- Application Caisse Streamlit Cloud -->
+        <div class="col-md-6 mb-4">
+            <div class="card shadow h-100 border-start border-primary border-4">
+                <div class="card-body">
+                    <h3>🧹 Gestion de Caisse - Entreprise de Nettoyage (Streamlit)</h3>
+                    <p>
+                        Application interactive permettant le suivi financier en temps réel, la génération de reçus de paiement au format PDF avec ReportLab, l'analyse graphique des recettes/dépenses avec Plotly, et un module complet de clôture de caisse physique.
+                    </p>
+                    <h5>Technologies utilisées :</h5>
+                    <span class="badge bg-primary">Python</span>
+                    <span class="badge bg-danger">Streamlit</span>
+                    <span class="badge bg-info text-dark">PostgreSQL (Neon)</span>
+                    <span class="badge bg-dark">ReportLab (PDF)</span>
+                    <span class="badge bg-warning text-dark">Plotly</span>
+                    <span class="badge bg-success">Streamlit Cloud</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Application Caisse FastAPI / Render -->
+        <div class="col-md-6 mb-4">
+            <div class="card shadow h-100 border-start border-success border-4">
+                <div class="card-body">
+                    <h3>⚡ Caisse Realtime API & Web (Render)</h3>
+                    <p>
+                        Système léger de gestion de caisse en temps réel orienté microservices backend avec FastAPI, gestion d'opérations financières sécurisées et base de données PostgreSQL isolée, hébergé sur Render.
+                    </p>
+                    <h5>Technologies utilisées :</h5>
+                    <span class="badge bg-primary">Python</span>
+                    <span class="badge bg-success">FastAPI</span>
+                    <span class="badge bg-info text-dark">PostgreSQL</span>
+                    <span class="badge bg-secondary">Uvicorn</span>
+                    <span class="badge bg-purple bg-gradient text-white">Render</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Application Gestion Nettoyage -->
+        <div class="col-md-6 mb-4">
+            <div class="card shadow h-100">
+                <div class="card-body">
+                    <h3>🧽 Application de Gestion de Nettoyage</h3>
+                    <p>
+                        Plateforme web dédiée au suivi des prestations de nettoyage, au suivi des interventions clients, à l'affectation du personnel et à la gestion du matériel.
+                    </p>
+                    <h5>Technologies utilisées :</h5>
+                    <span class="badge bg-primary">Python</span>
+                    <span class="badge bg-success">FastAPI / Flask</span>
+                    <span class="badge bg-info text-dark">PostgreSQL</span>
+                    <span class="badge bg-warning text-dark">Bootstrap</span>
+                    <span class="badge bg-dark">Render</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Resto Gestion -->
+        <div class="col-md-6 mb-4">
+            <div class="card shadow h-100">
+                <div class="card-body">
+                    <h3>🍽️ Resto App - Gestion de Restaurant</h3>
+                    <p>
+                        Application globale de gestion de restaurant : prise de commandes, suivi des tables, gestion des stocks et de la carte avec base de données sécurisée Neon.
+                    </p>
+                    <h5>Technologies utilisées :</h5>
+                    <span class="badge bg-primary">Python</span>
+                    <span class="badge bg-success">FastAPI</span>
+                    <span class="badge bg-info text-dark">PostgreSQL (Neon)</span>
+                    <span class="badge bg-dark">Git / GitHub</span>
+                    <span class="badge bg-primary">Render</span>
+                </div>
+            </div>
+        </div>
+
         <!-- Projet Bus -->
         <div class="col-md-6 mb-4">
             <div class="card shadow h-100">
                 <div class="card-body">
-
                     <h3>🚌 Application de réservation de bus</h3>
-
                     <p>
-                        Développement d'une plateforme de réservation permettant
-                        aux clients de consulter les trajets, réserver des places
-                        et gérer les informations des bus.
+                        Développement d'une plateforme de réservation permettant aux clients de consulter les trajets, réserver des places, éditer des billets PDF et gérer les bus.
                     </p>
-
                     <h5>Technologies utilisées :</h5>
-
                     <span class="badge bg-primary">Python</span>
                     <span class="badge bg-success">Flask</span>
                     <span class="badge bg-secondary">SQLite</span>
                     <span class="badge bg-warning text-dark">Bootstrap</span>
-
                 </div>
             </div>
         </div>
@@ -41,22 +107,15 @@
         <div class="col-md-6 mb-4">
             <div class="card shadow h-100">
                 <div class="card-body">
-
                     <h3>📋 Application de gestion de pointage</h3>
-
                     <p>
-                        Système de gestion des présences des employés avec
-                        authentification administrateur, tableau de bord
-                        et export Excel.
+                        Système de gestion des présences des employés avec authentification administrateur, tableau de bord et export Excel.
                     </p>
-
                     <h5>Technologies utilisées :</h5>
-
                     <span class="badge bg-primary">Python</span>
                     <span class="badge bg-success">Flask</span>
                     <span class="badge bg-secondary">SQLite</span>
-                    <span class="badge bg-info">OpenPyXL</span>
-
+                    <span class="badge bg-info text-dark">OpenPyXL</span>
                 </div>
             </div>
         </div>
@@ -65,21 +124,14 @@
         <div class="col-md-6 mb-4">
             <div class="card shadow h-100">
                 <div class="card-body">
-
                     <h3>💰 Application de gestion des dépenses</h3>
-
                     <p>
-                        Application permettant de suivre les dépenses,
-                        afficher les statistiques et gérer les opérations
-                        financières.
+                        Application permettant de suivre les dépenses, afficher les statistiques et gérer les opérations financières.
                     </p>
-
                     <h5>Technologies utilisées :</h5>
-
                     <span class="badge bg-primary">Python</span>
                     <span class="badge bg-success">Flask</span>
                     <span class="badge bg-secondary">SQLite</span>
-
                 </div>
             </div>
         </div>
@@ -88,43 +140,32 @@
         <div class="col-md-6 mb-4">
             <div class="card shadow h-100">
                 <div class="card-body">
-
                     <h3>🌐 Portfolio professionnel</h3>
-
                     <p>
-                        Site personnel présentant mon profil,
-                        mes compétences, mes expériences et mes réalisations.
+                        Site personnel présentant mon profil de développeur, mes compétences, mon parcours académique et mes réalisations.
                     </p>
-
                     <h5>Technologies utilisées :</h5>
-
                     <span class="badge bg-primary">Python</span>
                     <span class="badge bg-success">Flask</span>
                     <span class="badge bg-warning text-dark">Bootstrap</span>
-
                 </div>
             </div>
         </div>
 
         <!-- Cybersécurité -->
         <div class="col-md-12 mb-4">
-            <div class="card shadow">
+            <div class="card shadow border-start border-warning border-4">
                 <div class="card-body">
-
-                    <h3>🔐 Apprentissage en cybersécurité</h3>
-
+                    <h3>🔐 Apprentissage en cybersécurité & Administration Réseau</h3>
                     <p>
-                        Formation personnelle sur les bases de la cybersécurité :
+                        Compétences pratiques en sécurité et administration Linux :
                     </p>
-
                     <ul>
-                        <li>Linux</li>
-                        <li>Réseaux TCP/IP</li>
-                        <li>Nmap</li>
-                        <li>Sécurité Web</li>
-                        <li>Analyse de vulnérabilités (niveau débutant)</li>
+                        <li>Environnement Linux (Terminal, Crostini, Kali)</li>
+                        <li>Réseaux TCP/IP & Scans de sécurité avec Nmap</li>
+                        <li>Analyse de trafic réseau avec Wireshark & Aircrack-ng</li>
+                        <li>Sécurité Web, audit de données et gestion d'accès</li>
                     </ul>
-
                 </div>
             </div>
         </div>
