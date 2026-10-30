@@ -60,7 +60,7 @@
 <a class="nav-link" href="/contact">Contact</a>
 </li>
 
-<!-- Compteur de vues avec icône d'œil -->
+<!-- Compteur de vues global -->
 <li class="nav-item ms-lg-3 mt-2 mt-lg-0">
   <span class="badge bg-secondary d-inline-flex align-items-center gap-2 px-3 py-2" title="Vues totales du portfolio">
     <i class="fa-regular fa-eye"></i>
@@ -83,38 +83,39 @@
 
 </div>
 
-<!-- Bootstrap JS (Nécessaire pour le fonctionnement du menu hamburger sur mobile) -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
-<!-- Script du compteur de vues -->
+<!-- NOUVEAU SCRIPT DE COMPTEUR GLOBAL SYNC -->
 <script>
   document.addEventListener("DOMContentLoaded", function () {
-    const namespace = 'youssouf-seme-portfolio';
-    const key = 'total-views';
+    // Clé unique pour votre portfolio
+    const siteId = 'youssouf-seme-portfolio-2026';
+    
+    // URL de l'API publique Hits
+    const apiUrl = `https://hits.seeyoufarm.com/api/count/incr/badge.json?url=https%3A%2F%2Fportfolio-youssouf-seme.onrender.com%2F${siteId}&count_bg=%237B1E7B&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=hits&edge_flat=false`;
 
-    // Si le visiteur n'a pas encore visité dans cette session, on incrémente (+1)
-    if (!sessionStorage.getItem('portfolio_visited')) {
-      fetch(`https://api.countapi.xyz/hit/${namespace}/${key}`)
-        .then(res => res.json())
-        .then(data => {
+    fetch(apiUrl)
+      .then(res => res.json())
+      .then(data => {
+        // Extraction de la valeur globale des vues
+        if (data && data.value) {
           document.getElementById('visit-count').innerText = data.value;
-          sessionStorage.setItem('portfolio_visited', 'true');
-        })
-        .catch(err => {
-          console.error("Erreur d'accès au compteur :", err);
-          document.getElementById('visit-count').innerText = "1";
-        });
-    } else {
-      // Sinon, on récupère juste la valeur actuelle sans ajouter +1
-      fetch(`https://api.countapi.xyz/get/${namespace}/${key}`)
-        .then(res => res.json())
-        .then(data => {
-          document.getElementById('visit-count').innerText = data.value;
-        })
-        .catch(() => {
-          document.getElementById('visit-count').innerText = "1";
-        });
-    }
+        } else {
+          // Alternative via API directe si le format d'image est renvoyé
+          fetchCountFromAPI();
+        }
+      })
+      .catch(err => {
+        // Service de secours Countik si le premier est bloqué
+        fetch('https://api.counterapi.dev/v1/youssouf-seme-portfolio/views/up')
+          .then(res => res.json())
+          .then(data => {
+            document.getElementById('visit-count').innerText = data.count || "1";
+          })
+          .catch(() => {
+            document.getElementById('visit-count').innerText = "1";
+          });
+      });
   });
 </script>
 
