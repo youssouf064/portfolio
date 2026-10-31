@@ -3,6 +3,34 @@ from flask import Flask, render_template
 
 app = Flask(__name__)
 
+# Fichier local pour enregistrer le nombre total de vues
+COUNTER_FILE = "views.txt"
+
+def get_and_increment_views():
+    """Lit et incrémente le nombre de vues dans un fichier texte."""
+    count = 1
+    if os.path.exists(COUNTER_FILE):
+        try:
+            with open(COUNTER_FILE, "r") as f:
+                content = f.read().strip()
+                if content:
+                    count = int(content) + 1
+        except Exception:
+            count = 1
+
+    try:
+        with open(COUNTER_FILE, "w") as f:
+            f.write(str(count))
+    except Exception:
+        pass
+
+    return count
+
+# Injecte automatiquement la variable 'views_count' dans toutes les pages HTML
+@app.context_processor
+def inject_views():
+    return dict(views_count=get_and_increment_views())
+
 @app.route("/")
 def index():
     return render_template("index.html")
